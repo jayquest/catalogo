@@ -32,6 +32,10 @@ class Produto(models.Model):
     categoria = models.ForeignKey(Categoria)    
     descricao = models.TextField(validators=[MaxLengthValidator(140)],blank=True,null=True)
     slug = models.SlugField(max_length=120)
+    preco = models.FloatField(default=1.00)
+    disponivel = models.BooleanField(default=True)
+    embalagem_venda = models.CharField(default='Caixa com 10',max_length=40)
+
     class Meta:
         verbose_name = "produto"
         verbose_name_plural = "produtos"
